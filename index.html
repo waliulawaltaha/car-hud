@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBD2 Telemetry</title>
+  <style>
+    :root {
+      --surface: #111114;
+      --surface-container: #1E1E22;
+      --primary: #00FF00; 
+      --error: #FF3B30;
+      --on-primary: #000000;
+      --text-main: #E2E2E9;
+      --text-sub: #C4C6D0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--surface);
+      color: var(--text-main);
+      padding: 24px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .expressive-card {
+      background: var(--surface-container);
+      padding: 32px;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .header { margin-bottom: 32px; }
+    .header h2 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+    
+    /* Connection Status Indicator */
+    .status-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-sub);
+    }
+    .status-badge.connected { background: rgba(0, 255, 0, 0.2); color: var(--primary); }
+
+    .control-group { margin-bottom: 28px; }
+    .control-group label {
+      display: block; font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text-sub);
+    }
+
+    button {
+      background-color: var(--primary); color: var(--on-primary);
+      border: none; padding: 16px 24px; font-size: 16px; font-weight: bold;
+      border-radius: 100px; cursor: pointer; width: 100%; margin-bottom: 12px;
+      transition: transform 0.1s;
+    }
+    button:active { transform: scale(0.96); }
+    
+    button.connect-btn { background-color: #ffffff; }
+  </style>
+  <script type="module" crossorigin src="/assets/index-CYSgp4oq.js"></script>
+</head>
+<body>
+  <div class="expressive-card">
+    <div class="header">
+      <h2>Stealth HUD</h2>
+      <div id="connectionStatus" class="status-badge">DISCONNECTED</div>
+    </div>
+    
+    <div class="control-group">
+      <label>Hardware Bridge</label>
+      <button id="connectOBD2" class="connect-btn">Pair OBD2 Scanner</button>
+    </div>
+
+    <div class="control-group">
+      <label>Display Settings</label>
+      <button id="unitToggle">USING: MPH</button>
+    </div>
+  </div>
+
+</body>
+</html>
